@@ -1,5 +1,7 @@
 
-   
+   <?php loadPartial('head') ?>
+   <?php loadPartial('navbar') ?>
+   <?php loadPartial('main-top') ?>
 
 
 
@@ -122,3 +124,4 @@
     </section>
 
 
+    <?php loadPartial('footer') ?>
