@@ -1,6 +1,5 @@
 <?php 
 
-
 /**
  * Base Path
  * @param string $path
