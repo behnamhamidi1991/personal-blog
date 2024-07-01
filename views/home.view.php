@@ -119,7 +119,7 @@
                 <a href="#" class="blog-readmore-btn">Read More</a>
             </div>
 
-            <a href="#" class="blog-read-more">Read More Posts</a>
+            <a href="/blog" class="blog-read-more">Read More Posts</a>
         </div>
     </section>
 
