@@ -41,3 +41,20 @@ function loadPartial($name) {
         echo "There is no partial with the name of {$name}";
     }
 }
+
+
+/**
+ * Inspect a value
+ * 
+ * @param mixed $value
+ * @return void
+ */
+function inspect($value) {
+    echo "</br>";
+    var_dump($value);
+    echo "</br>";
+}
+
+/**
+ * 
+ */
