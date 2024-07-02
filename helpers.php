@@ -56,5 +56,12 @@ function inspect($value) {
 }
 
 /**
- * 
+ * Inspect and die
+ * @param mixed $value
+ * @return void
  */
+function inspectAndDie($value) {
+    echo "</br>";
+    var_dump($value);
+    echo "</br>";
+}
