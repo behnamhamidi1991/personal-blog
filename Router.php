@@ -58,4 +58,15 @@ class Router {
         $this->registerRoute('DELETE', $uri, $controller);
     }
 
+    /**
+     * Route the request
+     * 
+     * @param string $uri
+     * @param string $method
+     * @return void
+     */
+    public function route($uri, $method) {
+        
+    }
+
 }
