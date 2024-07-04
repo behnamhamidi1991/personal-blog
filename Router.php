@@ -58,6 +58,11 @@ class Router {
         $this->registerRoute('DELETE', $uri, $controller);
     }
 
+    public function error($errorCode = 404) {
+        http_response_code($errorCode);
+        loadView("errors/{$errorCode}");
+    }
+
     /**
      * Route the request
      * 
@@ -73,8 +78,6 @@ class Router {
             }
         }
 
-        http_response_code(404);
-        loadView('error/404');
-        exit;
+        $this->error();
     }
 }
