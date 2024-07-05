@@ -45,12 +45,12 @@
 
         <?php foreach($posts as $post) : ?>
             <div class="blog-box">
-                <h2><?= $post['title'] ?></h2>
-                <p><?= mb_substr($post['body'], 0, 250) . ' ...' ?> </p>
+                <h2><?= $post->title ?></h2>
+                <p><?= mb_substr($post->body, 0, 250) . ' ...' ?> </p>
                 <div class="post-details">
-                    <span><?= $post['created_at'] ?></span>
-                    <span><?= $post['user_name'] ?></span>
-                    <span><?= $post['category'] ?></span>
+                    <span><?= $post->created_at ?></span>
+                    <span><?= $post->user_name ?></span>
+                    <span><?= $post->category ?></span>
                 </div>
                 <a href="#" class="blog-readmore-btn">Read More</a>
             </div>
