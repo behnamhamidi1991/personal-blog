@@ -63,6 +63,6 @@ function inspect($value) {
  */
 function inspectAndDie($value) {
     echo "</br>";
-    var_dump($value);
+    die(var_dump($value));
     echo "</br>";
 }
