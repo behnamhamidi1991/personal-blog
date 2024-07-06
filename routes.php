@@ -1,4 +1,5 @@
 <?php 
+
 $router->get('/', "HomeController@index");
 
 // $router->get('/', 'controllers/home.php');
