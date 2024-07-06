@@ -1,0 +1,16 @@
+{
+    "name": "personal-blog/blog",
+    "description": "Job listing application",
+    "authors": [
+        {
+            "name": "Behnam Hamidi",
+            "email": "behnamhamidi688@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}ex
