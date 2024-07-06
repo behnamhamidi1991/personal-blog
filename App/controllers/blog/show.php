@@ -14,6 +14,8 @@ $params = [
 $post = $db->query('SELECT * FROM posts WHERE id = :id', $params)->fetch();
 
 
-inspect($post);
 
-loadView('blog/show');
+
+loadView('blog/show', [
+    'post' => $post
+]);
