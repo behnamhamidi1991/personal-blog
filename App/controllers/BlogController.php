@@ -14,11 +14,37 @@ class BlogController {
         $this->db = new Database($config);
     }
 
-    public function index() {
+    public function index() 
+    {
         $posts = $this->db->query('SELECT posts.*, users.name AS user_name FROM posts INNER JOIN users ON posts.user_id = users.id LIMIT 6')->fetchAll();
 
         loadView('/blog/index', [
             'posts' => $posts
+        ]);
+
+    }
+
+    public function create() 
+    {
+        loadView('/blog/create');
+    }
+
+    public function show() 
+    {
+        
+        $id = $_GET['id'] ?? '';
+
+        $params = [
+            'id' => $id
+        ];
+
+        $post = $this->db->query('SELECT * FROM posts WHERE id = :id', $params)->fetch();
+
+
+
+
+        loadView('blog/show', [
+            'post' => $post
         ]);
 
     }
