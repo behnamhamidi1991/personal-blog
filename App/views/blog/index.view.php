@@ -21,11 +21,10 @@
                     <span><?= $post->user_name ?></span>
                     <span><?= $post->category ?></span>
                 </div>
-                <a href="#" class="blog-readmore-btn">Read More</a>
+                <a href="/post?id=<?= $post->id ?>" class="blog-readmore-btn">Read More</a>
             </div>
             <?php endforeach ; ?>
 
-            <a href="#" class="blog-read-more">Read More Posts</a>
         </div>
     </section>
 
