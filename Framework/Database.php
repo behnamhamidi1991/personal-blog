@@ -39,7 +39,7 @@ class Database {
     public function query($query, $params = []) {
         try {
 
-            $sth = $this->conn->prepare($query);
+            $sth = $this->conn->prepare($ query);
 
             // Bind named params
             foreach($params as $param => $value) {
