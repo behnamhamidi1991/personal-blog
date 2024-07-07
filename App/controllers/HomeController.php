@@ -14,6 +14,11 @@ class HomeController {
         $this->db = new Database($config);
     }
 
+    /**
+     * Show the latest blog posts
+     *
+     * @return void
+     */
     public function index() {
         $posts = $this->db->query('SELECT posts.*, users.name AS user_name FROM posts INNER JOIN users ON posts.user_id = users.id LIMIT 6')->fetchAll();
 

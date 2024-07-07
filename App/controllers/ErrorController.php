@@ -5,19 +5,34 @@ namespace App\Controllers;
 
 class ErrorController {
     
-    protected $db;
-    
-    public function __construct() 
+    /**
+     * 404 not found error
+     *
+     * @return void
+     */
+    public function notFound($message = 'Resource not found!') 
     {
-        $config = require basePath('config/db.php');
-        $this->db = new Database($config);
+        http_response_code(404);
+
+        loadView('error', [
+            'status' => '404',
+            'message' => $message
+        ]);
+
     }
 
-    public function index() {
-        $posts = $this->db->query('SELECT posts.*, users.name AS user_name FROM posts INNER JOIN users ON posts.user_id = users.id LIMIT 6')->fetchAll();
+    /**
+     * 403 unauthorized
+     *
+     * @return void
+     */
+    public function unauthorized($message = 'You are not authorized to view this resource!') 
+    {
+        http_response_code(404);
 
-        loadView('home', [
-            'posts' => $posts
+        loadView('error', [
+            'status' => '404',
+            'message' => $message
         ]);
 
     }
