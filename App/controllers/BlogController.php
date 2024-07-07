@@ -29,10 +29,10 @@ class BlogController {
         loadView('/blog/create');
     }
 
-    public function show() 
+    public function show($params) 
     {
         
-        $id = $_GET['id'] ?? '';
+        $id = $params['id'] ?? '';
 
         $params = [
             'id' => $id
@@ -40,7 +40,11 @@ class BlogController {
 
         $post = $this->db->query('SELECT * FROM posts WHERE id = :id', $params)->fetch();
 
-
+        // Check if post exists
+        if (!$post) {
+            ErrorController::notFound('Post not found!');
+            return;
+        }
 
 
         loadView('blog/show', [
