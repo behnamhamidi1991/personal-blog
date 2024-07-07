@@ -10,7 +10,7 @@ class ErrorController {
      *
      * @return void
      */
-    public function notFound($message = 'Resource not found!') 
+    public static function notFound($message = 'Resource not found!') 
     {
         http_response_code(404);
 
@@ -26,7 +26,7 @@ class ErrorController {
      *
      * @return void
      */
-    public function unauthorized($message = 'You are not authorized to view this resource!') 
+    public static function unauthorized($message = 'You are not authorized to view this resource!') 
     {
         http_response_code(404);
 
