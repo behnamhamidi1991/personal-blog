@@ -64,13 +64,32 @@ class BlogController {
     
     $allowedFields = ['title', 'category', 'body'];
     
-        $newListingData = array_intersect_key($_POST, array_flip($allowedFields));
+        $newPostData = array_intersect_key($_POST, array_flip($allowedFields));
 
-        $newListingData['user_id'] = 1;
+        $newPostData['user_id'] = 1;
 
-        $newListingData = array_map('sanitize', $newListingData);
+        $newPostData = array_map('sanitize', $newPostData);
 
-        inspectAndDie($newListingData);
+        $requiredFields = ['title', 'body'];
+
+        $errors = [];
+
+        foreach($requiredFields as $field) {
+            if(empty($newPostData[$field]) || !Validation::string($newPostData[$field])) {
+                $errors[$field] = ucfirst($field) . ' is required!';
+            }
+        }
+
+        if (!empty($errors)) {
+            // Reload view with errors
+            loadView('blog/create', [
+                'errors' => $errors,
+                'post' => $newPostData
+            ]);
+        } else {
+            // Submit data
+            echo 'Success';
+        }
     }
 }
 

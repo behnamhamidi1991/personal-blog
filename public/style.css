@@ -477,6 +477,16 @@ h1,h2,h3,h4,h5,h6 {
 
 }
 
+.error-message {
+    font-size: 14px;
+    font-weight: 400;
+    background-color: rgb(219, 62, 35);
+    padding: 5px;
+    color: #fff;
+    margin-bottom: 4px;
+
+}
+
 
 @media screen and (max-width: 1130px) {
     #notes .notes-wrapper {
