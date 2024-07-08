@@ -8,6 +8,7 @@
 
         <div class="blog-content">
             <div class="blog-box">
+                <button></button>
                 <h2><?= $post->title ?></h2>
                 <p><?= $post->body ?></p>
             </div>

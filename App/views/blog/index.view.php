@@ -20,8 +20,9 @@
                     <span> <?= $post->created_at ?></span>
                     <span><?= $post->user_name ?></span>
                     <span><?= $post->category ?></span>
+
                 </div>
-                <a href="/post/<?= $post->id ?>" class="blog-readmore-btn">Read More</a>
+                <a href="/blog/<?= $post->id ?>" class="blog-readmore-btn">Read More</a>
             </div>
             <?php endforeach ; ?>
 

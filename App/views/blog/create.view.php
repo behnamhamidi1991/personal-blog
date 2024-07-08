@@ -12,7 +12,9 @@
         <?php endif ; ?>
         <form method="POST" action="/blog">
             <input name="title" value="<?= $post['title'] ?? '' ?>" type="text" placeholder="Title ...">
-            <input name="category" value="<?= $post['category'] ?? '' ?>" type="text" placeholder="Category ...">
+                
+            <input name="category" value="<?= $post['category'] ?? "" ?>" type="text" placeholder="Category ...">
+               
             <textarea name="body" value="<?= $post['body'] ?? '' ?>" placeholder="Write your post here ..."></textarea>
             <button type="submit">Submit</button>
         </form>

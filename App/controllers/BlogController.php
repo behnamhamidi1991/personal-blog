@@ -17,7 +17,7 @@ class BlogController {
 
     public function index() 
     {
-        $posts = $this->db->query('SELECT posts.*, users.name AS user_name FROM posts INNER JOIN users ON posts.user_id = users.id LIMIT 6')->fetchAll();
+        $posts = $this->db->query('SELECT posts.*, users.name AS user_name FROM posts INNER JOIN users ON posts.user_id = users.id')->fetchAll();
 
         loadView('/blog/index', [
             'posts' => $posts
@@ -62,11 +62,11 @@ class BlogController {
      */     
     public function store() {
     
-    $allowedFields = ['title', 'category', 'body'];
+    $allowedFields = ['title', 'category' => null, 'body'];
     
         $newPostData = array_intersect_key($_POST, array_flip($allowedFields));
 
-        $newPostData['user_id'] = 1;
+        $newPostData['user_id'] = 2;
 
         $newPostData = array_map('sanitize', $newPostData);
 
