@@ -88,7 +88,7 @@ class BlogController {
             ]);
         } else {
             // Submit data
-            echo 'Success';
+            $this->db->query('INSERT INTO blog (title, category, body) VALUES (:title, :category, :body)', $newPostData);
         }
     }
 }
