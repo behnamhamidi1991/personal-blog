@@ -88,7 +88,34 @@ class BlogController {
             ]);
         } else {
             // Submit data
-            $this->db->query('INSERT INTO blog (title, category, body) VALUES (:title, :category, :body)', $newPostData);
+            $fields = [];
+            foreach($newPostData as $field => $value) {
+                $fields[] = $field;
+            }
+
+            
+            $fields = implode(', ', $fields);
+
+            $values = [];
+            foreach ($newPostData as $field => $value) {
+                // Convert empty strings to null
+                if ($value === '') {
+                    $newPostData = null;
+                }
+
+                $values[] = ':' . $field;
+            }
+
+            $values = implode(', ', $values);
+
+            $query = "INSERT INTO posts ({$fields}) VALUES ({$values})";
+
+            $this->db->query($query, $newPostData);
+
+            header('Location: /blog');
+            exit;
+
+         
         }
     }
 }
