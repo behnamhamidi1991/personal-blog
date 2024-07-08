@@ -5,10 +5,10 @@
 
 
      <section id="form-container">
-        <form>
-            <input type="text" placeholder="Title ...">
-            <input type="text" placeholder="Category ...">
-            <textarea placeholder="Write your post here ..."></textarea>
+        <form method="POST" action="/blog">
+            <input name="title" type="text" placeholder="Title ...">
+            <input name="category" type="text" placeholder="Category ...">
+            <textarea name="body" placeholder="Write your post here ..."></textarea>
             <button type="submit">Submit</button>
         </form>
      </section>

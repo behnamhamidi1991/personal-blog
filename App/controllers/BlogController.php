@@ -30,6 +30,7 @@ class BlogController {
         loadView('/blog/create');
     }
 
+
     public function show($params) 
     {
         
@@ -53,4 +54,24 @@ class BlogController {
         ]);
 
     }
+
+    /**
+     * Store data in database
+     * 
+     * @return void
+     */     
+    public function store() {
+    
+    $allowedFields = ['title', 'category', 'body'];
+    
+        $newListingData = array_intersect_key($_POST, array_flip($allowedFields));
+
+        $newListingData['user_id'] = 1;
+
+        $newListingData = array_map('sanitize', $newListingData);
+
+        inspectAndDie($newListingData);
+    }
 }
+
+
