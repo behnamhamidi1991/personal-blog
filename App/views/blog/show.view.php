@@ -8,7 +8,10 @@
 
         <div class="blog-content">
             <div class="blog-box">
-                <button></button>
+                <form method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button>Delete</button>
+                </form>
                 <h2><?= $post->title ?></h2>
                 <p><?= $post->body ?></p>
             </div>

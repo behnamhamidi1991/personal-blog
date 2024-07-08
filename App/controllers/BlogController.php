@@ -30,7 +30,12 @@ class BlogController {
         loadView('/blog/create');
     }
 
-
+    /**
+     * Show a single post
+     *
+     * @param array $params
+     * @return void
+     */
     public function show($params) 
     {
         
@@ -113,11 +118,36 @@ class BlogController {
             $this->db->query($query, $newPostData);
 
             header('Location: /blog');
-            exit;
-
-         
+            exit; 
         }
     }
+
+    /**
+     * Delete a listing
+     * 
+     * @param array $params
+     * @return void
+     */
+    public function destroy($params) 
+    {
+        $id = $params['id'];
+
+        $params = [
+            'id' => $id
+        ];
+
+        $posts = $this->db->query('SELECT * FROM posts WHERE id = :id', $params)->fetch();
+
+        if (!$posts) {
+            ErrorController::notFound('Post not found!');
+            return;
+        }
+
+        $this->db->query('DELETE FROM posts WHERE id = :id', $params);
+        
+        redirect('/blog');
+
 }
 
 
+}
