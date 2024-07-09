@@ -499,6 +499,35 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
+#delBtn {
+    border: none;
+    padding: 4px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 300;
+    color: #fff;
+    background-color: red;
+    margin-bottom: 5px;
+    font-size: 12px;
+    height: 24px;
+}
+
+.editButton {
+    background-color: rgb(42, 62, 238);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 300;
+    height: 24px;
+}
+
+.blog-btn-container {
+    display: flex;
+    gap: 6px;
+}
+
 @media screen and (max-width: 1130px) {
     #notes .notes-wrapper {
         display: flex;

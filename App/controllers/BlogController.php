@@ -55,8 +55,7 @@ class BlogController {
 
 
         loadView('blog/show', [
-            'post' => $post,
-            'postId' => $id
+            'post' => $post
         ]);
 
     }
@@ -151,7 +150,39 @@ class BlogController {
 
         redirect('/blog');
 
-}
+    }
 
+
+
+    /**
+     * Show the listing edit form
+     *
+     * @param array $params
+     * @return void
+     */
+    public function edit($params) 
+    {
+        
+        $id = $params['id'] ?? '';
+
+        $params = [
+            'id' => $id
+        ];
+
+        $post = $this->db->query('SELECT * FROM posts WHERE id = :id', $params)->fetch();
+
+        // Check if post exists
+        if (!$post) {
+            ErrorController::notFound('Post not found!');
+            return;
+        }
+
+    
+
+        loadView('blog/edit', [
+            'post' => $post,
+        ]);
+
+    }
 
 }
