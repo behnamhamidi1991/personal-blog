@@ -240,7 +240,12 @@ class BlogController {
             $updateFields = implode(', ', $updateFields);
             
             $updateQuery = "UPDATE posts SET $updateFields WHERE id = :id";
-            inspectAndDie($updateQuery);
+
+            $updateValues['id'] = $id;
+            $this->db->query($updateQuery, $updateValues);
+
+            $_SESSION['success_messate'] = 'Listing Updated';
+            redirect('/blog/' . $id);
         }
 
     }

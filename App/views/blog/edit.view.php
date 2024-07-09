@@ -15,9 +15,7 @@
                 
             <input name="category" value="<?= $post->category ?? "" ?>" type="text" placeholder="Category ...">
                
-            <textarea name="body" placeholder="Write your post here ...">
-                <?= $post->body ?>
-            </textarea>
+            <textarea name="body" placeholder="Write your post here ..."><?= trim($post->body ?? "") ?></textarea>
             <button type="submit">Submit</button>
         </form>
 
