@@ -8,12 +8,7 @@
         <div class="blog-header">
             <h2>Blog</h2>
             <p>In our blog you can find anything you like to learn</p>
-            <?php if(isset($_SESSION['success_message'])) : ?>
-                <div class="success-message">
-                    <?= $_SESSION['success_message'] ?>
-                </div>
-                <?php unset($_SESSION['success_message']); ?>
-                <?php endif ; ?>
+            <?= loadPartial('message') ?>
         </div>
 
         <div class="blog-content">

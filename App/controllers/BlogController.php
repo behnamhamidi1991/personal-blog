@@ -89,8 +89,7 @@ class BlogController {
         if (!empty($errors)) {
             // Reload view with errors
             loadView('blog/create', [
-                'errors' => $errors,
-                'post' => $newPostData
+                'errors' => $error
             ]);
         } else {
             // Submit data
@@ -119,6 +118,7 @@ class BlogController {
             $this->db->query($query, $newPostData);
 
             header('Location: /blog');
+            $_SESSION['success_message'] = 'Post created successfully!';
             exit; 
         }
     }
