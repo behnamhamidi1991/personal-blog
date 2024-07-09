@@ -55,7 +55,8 @@ class BlogController {
 
 
         loadView('blog/show', [
-            'post' => $post
+            'post' => $post,
+            'postId' => $id
         ]);
 
     }
@@ -145,6 +146,9 @@ class BlogController {
 
         $this->db->query('DELETE FROM posts WHERE id = :id', $params);
         
+        // Set flash message
+        $_SESSION['success_message'] = 'Post deleted successfully!';
+
         redirect('/blog');
 
 }
