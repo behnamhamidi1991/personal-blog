@@ -237,7 +237,10 @@ class BlogController {
                 $updateFields[] = "{$field} = :{$field}";
             }
 
-            inspectAndDie($updateFields);
+            $updateFields = implode(', ', $updateFields);
+            
+            $updateQuery = "UPDATE posts SET $updateFields WHERE id = :id";
+            inspectAndDie($updateQuery);
         }
 
     }
