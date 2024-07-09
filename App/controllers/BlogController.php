@@ -185,4 +185,55 @@ class BlogController {
 
     }
 
+    /**
+     * Update a post
+     * 
+     * @param array $params
+     * @return void
+     */
+    public function update($params) 
+    {
+        $id = $params['id'] ?? '';
+
+        $params = [
+            'id' => $id
+        ];
+
+        $post = $this->db->query('SELECT * FROM posts WHERE id = :id', $params)->fetch();
+
+        // Check if post exists
+        if (!$post) {
+            ErrorController::notFound('Post not found!');
+            return;
+        }
+
+        $allowedFields = ['title', 'category' => null, 'body'];
+
+        $updatedValues = [];
+
+        $updatedValues = array_intersect_key($_POST, array_flip($allowedFields));
+
+        $requiredFields = ['title', 'body'];
+        
+        $errors = [];
+
+        foreach($requiredFields as $field) {
+            if(empty($updatedValues[$field]) || !Validation::string($updatedValues[$field])) {
+                $errors[$field] = ucfirst($field) . ' is required';
+            }
+        }
+
+        if (!empty($errors)) {
+            loadView('listing/edit', [
+                'listing' => $listing,
+                'errors' => $errors
+            ]);
+            exit;
+        } else {
+            // Submit to database
+            inspectAndDie('Success');
+        }
+
+        inspectAndDie($updatedValues);
+    }
 }
