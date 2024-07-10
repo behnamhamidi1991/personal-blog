@@ -8,3 +8,6 @@ $router->get('/blog/{id}', 'BlogController@show');
 $router->post('/blog', 'BlogController@store');
 $router->put('/blog/{id}', 'BlogController@update');
 $router->delete('/blog/{id}', 'BlogController@destroy');
+
+$router->get('/auth/register', 'UserController@create');
+$router->get('/auth/login', 'UserController@create');
