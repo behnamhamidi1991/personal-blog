@@ -9,5 +9,6 @@ $router->post('/blog', 'BlogController@store');
 $router->put('/blog/{id}', 'BlogController@update');
 $router->delete('/blog/{id}', 'BlogController@destroy');
 
-$router->get('/auth/register', 'UserController@create');
-$router->get('/auth/login', 'UserController@create');
+$router->get('/auth/login', 'UserController@login');
+$router->get('/auth/create', 'UserController@create');
+$router->post('/auth/register', 'UserController@store');

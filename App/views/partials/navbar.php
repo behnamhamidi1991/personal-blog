@@ -28,13 +28,13 @@
         </div>
 
         <div class="header-buttons">
-            <!-- <div class="user-buttons">
-                <a href="#" class="loginBtn">Login</a>
-                <a href="#" class="registerBtn">Register</a>
-            </div> -->
-            <div class="blog-button">
+            <div class="user-buttons">
+                <a href="/auth/login" class="loginBtn">Login</a>
+                <a href="/auth/create" class="registerBtn">Register</a>
+            </div>
+            <!-- <div class="blog-button">
                 <a href="/blog/create" class="createPost">Create Post</a>
                 <a href="#" class="logoutBtn">Logout</a>
-            </div>
+            </div> -->
         </div>
     </header>
