@@ -79,7 +79,9 @@ class UserController {
             'email' => $email
         ];
 
-        $user = $this->db->query('SELECT * FROM users WHERE email = :email', $params);
+        $user = $this->db->query('SELECT * FROM users WHERE email = :email', $params)->fetch();
+
+
 
         if ($user) {
             $errors['email'] = 'That email already exists';
@@ -88,6 +90,17 @@ class UserController {
             ]);
             exit;
         }
+
+        // Create user accout
+        $params = [
+            'name' => $name,
+            'email' => $email,
+            'password' => password_hash($password, PASSWORD_DEFAULT)
+        ];
+
+        $this->db->query('INSERT INTO users (name, email, password) VALUES (:name, :email, :password)', $params);
+
+        redirect('/');
 
     }
 }
