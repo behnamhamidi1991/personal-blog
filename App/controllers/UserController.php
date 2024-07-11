@@ -101,6 +101,5 @@ class UserController {
         $this->db->query('INSERT INTO users (name, email, password) VALUES (:name, :email, :password)', $params);
 
         redirect('/');
-
     }
 }
