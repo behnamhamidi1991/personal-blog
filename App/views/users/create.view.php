@@ -4,11 +4,9 @@
 
 
      <section id="form-container">
-        <?php if(isset($errors)) : ?>
-            <?php foreach ($errors as  $error) : ?>
-                <div class="error-message"><?= $error ?></div>
-             <?php endforeach ; ?>
-        <?php endif ; ?>
+        <?= loadPartial('errors', [
+            'errors' => $errors ?? []
+        ]) ?>
         <form method="POST" action="/auth/register">
             <input name="name"  type="text" placeholder="Name">
             <input name="email"  type="email" placeholder="Email">

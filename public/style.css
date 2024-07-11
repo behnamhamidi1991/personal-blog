@@ -528,6 +528,10 @@ h1,h2,h3,h4,h5,h6 {
     gap: 6px;
 }
 
+.error-message-box {
+    color: red;
+}
+
 @media screen and (max-width: 1130px) {
     #notes .notes-wrapper {
         display: flex;
