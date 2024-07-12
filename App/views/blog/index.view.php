@@ -8,6 +8,7 @@
         <div class="blog-header">
             <h2>Blog</h2>
             <p>In our blog you can find anything you like to learn</p>
+            <?= loadPartial('message') ?>
         </div>
 
         <div class="blog-content">
@@ -20,8 +21,9 @@
                     <span> <?= $post->created_at ?></span>
                     <span><?= $post->user_name ?></span>
                     <span><?= $post->category ?></span>
+
                 </div>
-                <a href="/post?id=<?= $post->id ?>" class="blog-readmore-btn">Read More</a>
+                <a href="/blog/<?= $post->id ?>" class="blog-readmore-btn">Read More</a>
             </div>
             <?php endforeach ; ?>
 
