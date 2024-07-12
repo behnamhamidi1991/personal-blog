@@ -1,3 +1,7 @@
+ <?php 
+    use Framework\Session;
+ ?>
+ 
  <!-- HEADER -->
  <header id="header" class="header">
         <div class="logoContainer">
@@ -28,13 +32,24 @@
         </div>
 
         <div class="header-buttons">
-            <div class="user-buttons">
-                <a href="/auth/login" class="loginBtn">Login</a>
-                <a href="/auth/create" class="registerBtn">Register</a>
-            </div>
-            <!-- <div class="blog-button">
-                <a href="/blog/create" class="createPost">Create Post</a>
-                <a href="#" class="logoutBtn">Logout</a>
-            </div> -->
+            <?php if (Session::has('user')) : ?>
+                <div class="blog-button">
+                    <div class="welcome">
+                        Welcome <?=  Session::get('user')['name'] ?>
+                    </div>
+                    <a href="/blog/create" class="createPost">Create Post</a>
+                    <form method="POST" action="/auth/logout">
+                        <button type="submit" class="logoutBtn">Logout</button>
+                    </form>
+                </div>
+                <?php else : ?>
+                <div class="user-buttons">
+                    <a href="/auth/login" class="loginBtn">Login</a>
+                    <a href="/auth/create" class="registerBtn">Register</a>
+                </div>
+                <?php endif; ?>
+
+      
+           
         </div>
     </header>

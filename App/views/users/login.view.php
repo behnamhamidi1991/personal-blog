@@ -9,10 +9,10 @@
                 <div class="error-message"><?= $error ?></div>
              <?php endforeach ; ?>
         <?php endif ; ?>
-        <form method="POST" action="/blog">
-            <input name="email"  type="email" placeholder="Email">
+        <form method="POST" action="/auth/login">
+            <input name="email"  type="text" placeholder="Email">
                 
-            <input name="passwrd"  type="text" placeholder="Password">
+            <input name="password"  type="password" placeholder="Password">
                
             <button type="submit">Login</button>
         </form>
